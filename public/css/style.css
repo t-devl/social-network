@@ -11,6 +11,10 @@ textarea {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.logout__button {
+    cursor: pointer;
+}
+
 .form {
     width: 300px;
     padding: 1rem 1.25rem;
@@ -51,4 +55,15 @@ textarea {
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
+}
+
+.form__text {
+    margin: 1.5rem 0 1rem;
+    color: rgb(83, 83, 83);
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.form__link {
+    color: rgb(11, 123, 235);
 }

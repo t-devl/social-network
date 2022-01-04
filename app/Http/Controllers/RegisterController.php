@@ -20,6 +20,6 @@ class RegisterController extends Controller
 
         User::create(["username" => $username, "email" => $email, "password" => $hashedPassword]);
 
-        return redirect("/");
+        return redirect("/login");
     }
 }

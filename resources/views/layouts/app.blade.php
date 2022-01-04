@@ -13,8 +13,16 @@
         <nav class="header__nav nav">
             <ul class="nav__list">
                 <li class="nav__item">
-                    <a class="nav__link" href="#">Log in</a>
+                    @guest
+                    <a class="nav__link" href="/login">Log in</a>
                     <a class="nav__link" href="/register">Register</a>
+                    @endguest
+                    @auth
+                    <form class="nav__logout logout" method="POST" action="/logout">
+                        @csrf
+                        <button class="logout__button" type="submit">Log out</button>
+                    </form>
+                    @endauth
                 </li>
             </ul>
         </nav>
