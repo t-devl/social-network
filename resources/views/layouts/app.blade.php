@@ -24,6 +24,9 @@
                     <a class="nav__link" href="/">Home</a>
                 </li>
                 <li class="nav__item">
+                    <a class="nav__link" href="/posts/create">Create a Post</a>
+                </li>
+                <li class="nav__item">
                     <a class="nav__link" href="/users">View Users</a>
                 </li>
                 <li class="nav__item">
