@@ -9,21 +9,30 @@
 </head>
 <body>
     <header class="header">
-        <h1 class="header__title">Social Network</h1>
         <nav class="header__nav nav">
             <ul class="nav__list">
+                @guest
                 <li class="nav__item">
-                    @guest
                     <a class="nav__link" href="/login">Log in</a>
+                </li>
+                <li class="nav__item">
                     <a class="nav__link" href="/register">Register</a>
-                    @endguest
-                    @auth
+                </li>
+                @endguest
+                @auth
+                <li class="nav__item">
+                    <a class="nav__link" href="/">Home</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="/users">View Users</a>
+                </li>
+                <li class="nav__item">
                     <form class="nav__logout logout" method="POST" action="/logout">
-                        @csrf
+                    @csrf
                         <button class="logout__button" type="submit">Log out</button>
                     </form>
-                    @endauth
                 </li>
+                @endauth     
             </ul>
         </nav>
     </header>
