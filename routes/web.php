@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FollowController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
@@ -23,6 +24,8 @@ Route::get('/', function () {
 
 Route::get("/users", [UserController::class, "index"]);
 
+Route::get("/users/{id}", [UserController::class, "show"]);
+
 Route::get("/register", [RegisterController::class, "create"]);
     
 Route::post("/register", [RegisterController::class, "store"]);
@@ -33,10 +36,12 @@ Route::post("/login", [LoginController::class, "store"]);
 
 Route::post("/logout", [LoginController::class, "destroy"]);
 
-Route::get("/users/{id}", [UserController::class, "show"]);
-
 Route::get("/posts/create", [PostController::class, "create"]);
 
 Route::get("/posts", [PostController::class, "index"]);
 
 Route::post("/posts", [PostController::class, "store"]);
+
+Route::post("/follow", [FollowController::class, "store"]);
+
+Route::delete("/follow", [FollowController::class, "destroy"]);
