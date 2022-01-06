@@ -24,27 +24,43 @@ textarea {
 
 .nav__list {
     display: flex;
+    justify-content: flex-end;
     list-style: none;
 }
 
 .nav__item {
     margin: 0 1.5rem;
+    border-radius: 5px;
 }
 
-.nav__item:first-of-type {
+.nav__item--left {
     margin-left: 0;
     margin-right: auto;
-}
-
-.nav__link {
-    color: white;
 }
 
 .nav__item:last-of-type {
     margin-right: 0;
 }
 
+.nav__link {
+    display: inline-block;
+    padding: 0.5rem;
+    color: white;
+}
+
+.nav__link--user {
+    border-radius: 5px;
+    background-color: rgb(11, 123, 235);
+    text-decoration: none;
+}
+
+.nav__link--user:hover,
+.nav__link--user:focus {
+    background-color: rgb(7, 114, 221);
+}
+
 .logout__button {
+    padding: 0.5rem;
     border: none;
     background: none;
     color: white;
@@ -129,4 +145,38 @@ textarea {
 .user__username {
     font-size: 1.2rem;
     font-weight: normal;
+}
+
+.profile {
+    padding: 1rem;
+}
+
+.profile__username {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.posts {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.posts__title {
+    text-align: center;
+}
+
+.post {
+    padding: 1rem;
+    margin: 1rem 0;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+
+.post__date {
+    color: grey;
+    font-size: 0.8rem;
+}
+
+.post__text {
+    padding: 1rem 0;
 }

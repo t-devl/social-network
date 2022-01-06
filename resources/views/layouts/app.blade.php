@@ -20,8 +20,11 @@
                 </li>
                 @endguest
                 @auth
-                <li class="nav__item">
+                <li class="nav__item nav__item--left">
                     <a class="nav__link" href="/">Home</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link nav__link--user" href="/users/{{ Auth::user()->id }}">{{ Auth::user()->username }}</a>
                 </li>
                 <li class="nav__item">
                     <a class="nav__link" href="/posts/create">Create a Post</a>
