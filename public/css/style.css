@@ -127,6 +127,15 @@ textarea {
     color: rgb(11, 123, 235);
 }
 
+.feed {
+    padding: 2rem;
+}
+
+.feed__title {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
 .users {
     display: grid;
     grid-template-columns: repeat(auto-fit, 250px);
@@ -152,7 +161,6 @@ textarea {
 }
 
 .profile__username {
-    /* margin-bottom: 1.5rem; */
     text-align: center;
 }
 
@@ -209,7 +217,7 @@ textarea {
     border-radius: 5px;
 }
 
-.post__date {
+.post__datetime {
     color: grey;
     font-size: 0.8rem;
 }

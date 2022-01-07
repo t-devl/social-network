@@ -29,7 +29,7 @@
         <div class="posts__post post">
             <header class="post__header">
                 <h3 class="post__author">{{ $user->username }}</h3>
-                <div class="post__date">{{ $post->created_at->format("d/m/Y") }}</div>
+                <div class="post__datetime">{{ $post->created_at->format("d/m/Y H:i") }}</div>
             </header>
             <p class="post__text">{{ $post->text }}</p>
         </div>
