@@ -151,9 +151,20 @@ textarea {
     border-radius: 5px;
 }
 
+.user__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .user__username {
     font-size: 1.2rem;
     font-weight: normal;
+}
+
+.user__followed-indicator {
+    color: grey;
+    font-size: 0.85rem;
 }
 
 .profile {
@@ -197,6 +208,16 @@ textarea {
     margin: 0 1.5rem;
 }
 
+.profile__follow-link {
+    color: black;
+    text-decoration: none;
+}
+
+.profile__follow-link:hover,
+.profile__follow-link:focus {
+    text-decoration: underline;
+}
+
 .profile__follow-number {
     font-weight: bold;
 }
@@ -224,4 +245,14 @@ textarea {
 
 .post__text {
     padding: 1rem 0;
+}
+
+.following,
+.follower {
+    padding: 1rem;
+}
+
+.following__title,
+.follower__title {
+    text-align: center;
 }

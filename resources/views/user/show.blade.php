@@ -20,8 +20,12 @@
         @endif
     @endif
     <div class="profile__follow-stats">
-        <div class="profile__follow-stat">Following: <span class="profile__follow-number">{{ $followingCount }}</span></div>
-        <div class="profile__follow-stat">Followers: <span class="profile__follow-number">{{ $followersCount }}</span></div>
+        <div class="profile__follow-stat">
+            <a class="profile__follow-link" href="/users/{{ $user->id }}/following">Following: <span class="profile__follow-number">{{ $followingCount }}</span></a>
+        </div>
+        <div class="profile__follow-stat">
+            <a class="profile__follow-link" href="/users/{{ $user->id }}/followers">Followers: <span class="profile__follow-number">{{ $followersCount }}</span></a>
+        </div>
     </div>
     <div class="profile__posts posts">
         <h2 class="posts__title">Posts</h2>

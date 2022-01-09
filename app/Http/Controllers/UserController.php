@@ -11,7 +11,8 @@ class UserController extends Controller
 {
     public function index(){
         $users = User::all();
-        return view ("user.index", ["users" => $users]);
+        $followedUsers = User::find(Auth::user()->id)->following()->pluck("id")->toArray();  
+        return view ("user.index", ["users" => $users, "followedUsers" => $followedUsers]);
     }
 
     public function show($id){
