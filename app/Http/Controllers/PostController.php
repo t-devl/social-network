@@ -12,6 +12,10 @@ class PostController extends Controller
     }
 
     public function store(){
+        request()->validate([
+            "text" => "required",
+        ]);
+
         $text = request("text");
         $userId = request("userId");
 

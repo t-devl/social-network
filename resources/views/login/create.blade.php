@@ -13,11 +13,17 @@
         <h1 class="form__title">Log In</h1>
         <div class="form__group">
             <label class="form__label" for="uid">Username or Email</label>
-            <input class="form__input" id="uid" name="uid" type="text" />
+            <input class="form__input" id="uid" name="uid" type="text" value="{{ old("uid") }}" required />
+            @error("uid")
+            <p class="form__error">{{ $message }}</p>
+            @enderror
         </div>
         <div class="form__group">
             <label class="form__label" for="password">Password</label>
-            <input class="form__input" id="password" name="password" type="password"/>
+            <input class="form__input" id="password" name="password" type="password" required/>
+            @error("password")
+            <p class="form__error">{{ $message }}</p>
+            @enderror
         </div>
         <button class="form__button" type="submit">Log In</button>
         <p class="form__text">Not registered? <a class="form__link" href="/register">Create an account</a></p>

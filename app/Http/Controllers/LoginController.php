@@ -12,6 +12,13 @@ class LoginController extends Controller
     }
 
     public function store(){
+        request()->validate([
+            "uid" => "required|exists:users,username",
+            "password" => "required",
+        ], [
+            "uid.exists" => "Invalid username or email.",
+        ]);
+
         $uid = request("uid");
         $password = request("password");
 
@@ -26,8 +33,12 @@ class LoginController extends Controller
             return redirect()->intended();
         }
         else{
-            echo "Failed to log in";
+            $errors = [
+                "password" => "Incorrect password.",
+            ];
+            return back()->withErrors($errors)->withInput();
         }
+
     }
 
     public function destroy(){
