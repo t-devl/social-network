@@ -36,6 +36,27 @@
                 <div class="post__datetime">{{ $post->created_at->format("d/m/Y H:i") }}</div>
             </header>
             <p class="post__text">{{ $post->text }}</p>
+            <div class="post__likes">
+                @if(!in_array(Auth::user()->id, $post->likes))
+                <form class="post__like" method="POST" action="/likes/{{ $post->id }}">
+                    @csrf
+                    <button class="post__like-button" type="submit">Like</button>
+                </form>
+                @else
+                <form class="post__like" method="POST" action="/likes/{{ $post->id }}">
+                    @csrf
+                    @method("delete")
+                    <button class="post__like-button post__like-button--unlike" type="submit">Unlike</button>
+                </form>
+                @endif
+                <span class="post__like-count">{{ count($post->likes) }} 
+                    @if(count($post->likes) == 1)
+                    like
+                    @else
+                    likes
+                    @endif
+                </span>
+            </div>
         </div>
         @endforeach
     </div>

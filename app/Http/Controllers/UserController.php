@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Follow;
+use App\Models\Like;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,6 +19,12 @@ class UserController extends Controller
     public function show($id){
         $user = User::find($id);
         $posts = $user->posts()->get();
+  
+        foreach($posts as $post){
+            $likes = $post->likes()->pluck("user_id")->toArray();
+            $post->likes = $likes;
+        }
+    
         $followersCount = count($user->followers()->get());
         $followingCount = count($user->following()->get());
         $isFollowed = Follow::where("followed_id", $id)->where("follower_id", Auth::user()->id)->exists();

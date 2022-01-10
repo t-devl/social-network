@@ -15,6 +15,10 @@ class FeedController extends Controller
             $user = User::find(Auth::user()->id);
             $following = $user->following()->pluck("id")->toArray();      
             $posts = Post::whereIn("user_id", $following)->orWhere("user_id", $user->id)->orderBy("created_at", "DESC")->get();
+            foreach($posts as $post){
+                $likes = $post->likes()->pluck("user_id")->toArray();
+                $post->likes = $likes;
+            }
         }
         else{
             $posts = [];

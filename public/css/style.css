@@ -247,6 +247,29 @@ textarea {
     padding: 1rem 0;
 }
 
+.post__likes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post__like-button {
+    border: none;
+    background: none;
+    color: rgb(11, 123, 235);
+    font-size: 0.9rem;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.post__like-button--unlike {
+    color: grey;
+}
+
+.post__like-count {
+    font-size: 0.9rem;
+}
+
 .following,
 .follower {
     padding: 1rem;
