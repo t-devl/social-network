@@ -10,7 +10,7 @@ class FollowerController extends Controller
 {
     public function index($id){
         $users = User::find($id)->followers()->get();
-        $followedUsers = User::find(Auth::user()->id)->following()->pluck("id")->toArray();
+        $followedUsers = Auth::user() ? User::find(Auth::user()->id)->following()->pluck("id")->toArray() : [];
         return view("follower.index", ["users" => $users, "followedUsers" => $followedUsers]);
     }
 }

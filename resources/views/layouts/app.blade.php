@@ -13,6 +13,9 @@
             <ul class="nav__list">
                 @guest
                 <li class="nav__item">
+                    <a class="nav__link" href="/users">View Users</a>
+                </li>
+                <li class="nav__item">
                     <a class="nav__link" href="/login">Log in</a>
                 </li>
                 <li class="nav__item">

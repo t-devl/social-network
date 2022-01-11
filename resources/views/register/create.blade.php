@@ -42,6 +42,7 @@
             @enderror    
         </div>
         <button class="form__button" type="submit">Create Account</button>
+        <p class="form__text">Already have an account? <a class="form__link" href="/login">Log in</a></p>
     </form>
 </body>
 </html>

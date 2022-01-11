@@ -12,7 +12,8 @@ class UserController extends Controller
 {
     public function index(){
         $users = User::all();
-        $followedUsers = User::find(Auth::user()->id)->following()->pluck("id")->toArray();  
+        $followedUsers = Auth::user() ? User::find(Auth::user()->id)->following()->pluck("id")->toArray() :  [];
+          
         return view ("user.index", ["users" => $users, "followedUsers" => $followedUsers]);
     }
 
@@ -27,7 +28,9 @@ class UserController extends Controller
     
         $followersCount = count($user->followers()->get());
         $followingCount = count($user->following()->get());
-        $isFollowed = Follow::where("followed_id", $id)->where("follower_id", Auth::user()->id)->exists();
+
+        $isFollowed = Auth::user() ? Follow::where("followed_id", $id)->where("follower_id", Auth::user()->id)->exists() : false;
+
         return view ("user.show", ["user" => $user, "posts" => $posts, "followersCount" => $followersCount, "followingCount" => $followingCount, "isFollowed" => $isFollowed]);
     }
 }

@@ -5,7 +5,7 @@
     </header>
     <p class="post__text">{{ $post->text }}</p>
     <div class="post__likes">
-        @if(!in_array(Auth::user()->id, $post->likes))
+        @if(!Auth::user() || !in_array(Auth::user()->id, $post->likes))
         <form class="post__like" method="POST" action="/likes/{{ $post->id }}">
             @csrf
             <button class="post__like-button" type="submit">Like</button>

@@ -27,6 +27,7 @@
         </div>
         <button class="form__button" type="submit">Log In</button>
         <p class="form__text">Not registered? <a class="form__link" href="/register">Create an account</a></p>
+        <p class="form__text"><a class="form__link" href="/users">Have a look around first</a></p>
     </form>
 </body>
 </html>
