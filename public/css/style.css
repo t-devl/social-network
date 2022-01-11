@@ -46,6 +46,7 @@ textarea {
     display: inline-block;
     padding: 0.5rem;
     color: white;
+    font-size: 0.95rem;
 }
 
 .nav__link--user {
@@ -64,7 +65,7 @@ textarea {
     border: none;
     background: none;
     color: white;
-    font-size: 1rem;
+    font-size: 0.95rem;
     text-decoration: underline;
     cursor: pointer;
 }
@@ -177,17 +178,39 @@ textarea {
     font-size: 0.85rem;
 }
 
+.user__link {
+    color: rgb(11, 123, 235);
+}
+
 .profile {
     padding: 1rem;
 }
 
+.profile__top {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+}
+
+.profile__likes-link {
+    grid-column: 1/2;
+    justify-self: end;
+    border: none;
+    background: none;
+    color: rgb(11, 123, 235);
+    font-size: 1rem;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .profile__username {
+    grid-column: 2/3;
     text-align: center;
 }
 
 .profile__follow {
-    margin: 1rem 0;
-    text-align: center;
+    grid: 3/4;
+    justify-self: start;
 }
 
 .profile__follow-button {
@@ -248,6 +271,16 @@ textarea {
     border-radius: 5px;
 }
 
+.post__author-link {
+    color: black;
+    text-decoration: none;
+}
+
+.post__author-link:hover,
+.post__author-link.focus {
+    text-decoration: underline;
+}
+
 .post__datetime {
     color: grey;
     font-size: 0.8rem;
@@ -287,5 +320,14 @@ textarea {
 
 .following__title,
 .follower__title {
+    text-align: center;
+}
+
+.likes {
+    padding: 2rem;
+}
+
+.likes__title {
+    margin-bottom: 2rem;
     text-align: center;
 }

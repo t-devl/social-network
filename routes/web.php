@@ -4,7 +4,7 @@ use App\Http\Controllers\FeedController;
 use App\Http\Controllers\FollowController;
 use App\Http\Controllers\FollowerController;
 use App\Http\Controllers\FollowingController;
-use App\Http\Controllers\LikesController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
@@ -32,6 +32,8 @@ Route::get("/users/{id}/following", [FollowingController::class, "index"]);
 
 Route::get("/users/{id}/followers", [FollowerController::class, "index"]);
 
+Route::get("/users/{id}/likes", [LikeController::class, "index"]);
+
 Route::get("/register", [RegisterController::class, "create"]);
     
 Route::post("/register", [RegisterController::class, "store"]);
@@ -48,9 +50,9 @@ Route::get("/posts", [PostController::class, "index"]);
 
 Route::post("/posts", [PostController::class, "store"]);
 
-Route::post("/likes/{id}", [LikesController::class, "store"]);
+Route::post("/likes/{id}", [LikeController::class, "store"]);
 
-Route::delete("/likes/{id}", [LikesController::class, "destroy"]);
+Route::delete("/likes/{id}", [LikeController::class, "destroy"]);
 
 Route::post("/follow", [FollowController::class, "store"]);
 
