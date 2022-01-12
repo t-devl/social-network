@@ -5,7 +5,9 @@
     <div class="profile__top">
     <a class="profile__likes-link" href="/users/{{ $user->id }}/likes">Likes</a>
     <h1 class="profile__username">{{ $user->username }}</h1>
-    @if(Auth::user() && Auth::user()->id !== $user->id)
+    @if(Auth::user() && Auth::user()->id === $user->id)
+    <a class="profile__edit-link" href="/users/edit">Edit</a>
+    @else
         @if(!$isFollowed)
         <form class="profile__follow" method="POST" action="/follow">
             @csrf

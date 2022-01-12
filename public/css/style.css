@@ -208,9 +208,13 @@ textarea {
     text-align: center;
 }
 
+.profile__edit-link {
+    grid-column: 3/4;
+    color: rgb(11, 123, 235);
+}
+
 .profile__follow {
-    grid: 3/4;
-    justify-self: start;
+    grid-column: 3/4;
 }
 
 .profile__follow-button {
