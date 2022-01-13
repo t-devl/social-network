@@ -14,7 +14,7 @@
 
 <script>
     $(document).ready(function(){
-        $(".post__likes").on("submit", ".post__like", function(e){
+        $(".post__like").on("submit", function(e){
             e.preventDefault();
             $form = $(e.target);
             $button = $form.find(".post__like-button");
@@ -32,6 +32,11 @@
                 url: `/likes/${$postId}`,
                 type: "POST",
                 data: $formData,
+                statusCode:{
+                    401: function(){
+                        window.location.href = "/login";
+                    }
+                },
                 success: function(res){
                     $button.attr("disabled", false);
                     $likesDisplay = $form.next();

@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(["middleware" => "auth"], function(){
+    Route::get("/", FeedController::class);
     Route::post("/logout", [LoginController::class, "destroy"]);
     Route::get("/users/edit", [UserController::class, "edit"]);
     Route:: post("/users/edit", [UserController::class, "update"]);
@@ -33,7 +34,6 @@ Route::group(["middleware" => "auth"], function(){
     Route::delete("/follow", [FollowController::class, "destroy"]);
 });
 
-Route::get("/", FeedController::class);
 Route::get("/users", [UserController::class, "index"]);
 Route::get("/users/{id}", [UserController::class, "show"]);
 Route::get("/users/{id}/following", [FollowingController::class, "index"]);
