@@ -71,5 +71,14 @@
                 }
             });
         });
+
+        $(".post__view-likes-button").on("click", function(e){
+            $button = $(this);
+            $button.next().addClass("post__like-modal-container--active");
+        });
+
+        $(".like-modal__button").on("click", function(){
+            $(this).closest(".post__like-modal-container").removeClass("post__like-modal-container--active");
+        });
     });
 </script>

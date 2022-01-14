@@ -313,7 +313,79 @@ textarea {
     color: grey;
 }
 
+.post__view-likes-button {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
 .post__like-count {
+    font-size: 0.9rem;
+}
+
+.post__like-modal-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.349);
+}
+
+.post__like-modal-container--active {
+    display: flex;
+}
+
+.like-modal {
+    width: 280px;
+    padding-bottom: 0.5rem;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    background-color: white;
+    z-index: 10;
+}
+
+.like-modal__top {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid lightgrey;
+}
+
+.like-modal__button {
+    position: absolute;
+    right: 1rem;
+    width: 25px;
+    height: 25px;
+    background: white;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    color: grey;
+    cursor: pointer;
+}
+
+.like-modal__message {
+    padding: 1rem;
+    color: grey;
+}
+
+.like-modal .user {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: none;
+}
+
+.like-modal .user__username {
+    font-size: 1rem;
+}
+
+.like-modal .user__link {
     font-size: 0.9rem;
 }
 

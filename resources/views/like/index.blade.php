@@ -12,6 +12,11 @@
     </div>
 @endsection
 
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+
 <script>
     $(document).ready(function(){
         $(".post__like").on("submit", function(e){
@@ -62,6 +67,15 @@
                     }
                 }
             });
+        });
+
+        $(".post__view-likes-button").on("click", function(e){
+            $button = $(this);
+            $button.next().addClass("post__like-modal-container--active");
+        });
+
+        $(".like-modal__button").on("click", function(){
+            $(this).closest(".post__like-modal-container").removeClass("post__like-modal-container--active");
         });
     });
 </script>

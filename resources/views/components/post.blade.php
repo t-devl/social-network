@@ -19,11 +19,32 @@
             <button class="post__like-button post__like-button--unlike">Unlike</button>
         </form>
         @endif
-        <div class="post__like-display"><span class="post__like-count">{{ count($post->likes) }}</span> @if(count($post->likes) == 1)
-            like
-            @else
-            likes
-            @endif
+        <button class="post__view-likes-button">
+            <div class="post__like-display">
+                <span class="post__like-count">{{ count($post->likes) }}</span> 
+                @if(count($post->likes) == 1)
+                like
+                @else
+                likes
+                @endif
+            </div>
+        </button>
+        <div class="post__like-modal-container">
+            <div class="post__like-modal like-modal">
+                <div class="like-modal__top">
+                    <h2 class="like-modal__title">Likes</h2>
+                    <button class="like-modal__button">x</button>
+                </div>
+                <div class="like-modal__users">
+                @if(count($post->likes) == 0)
+                <p class="like-modal__message">This post has no likes.</p>
+                @else
+                @foreach($post->likedBy as $user)
+                <x-user :user="$user" />
+                @endforeach
+                @endif
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -2,6 +2,8 @@
 
 namespace App\View\Components;
 
+use App\Models\User as ModelsUser;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\Component;
 
 class User extends Component
@@ -14,10 +16,10 @@ class User extends Component
      *
      * @return void
      */
-    public function __construct($user, $followedUsers)
-    {
+    public function __construct($user)
+    {   
         $this->user = $user;
-        $this->followedUsers = $followedUsers;
+        $this->followedUsers = Auth::user() ? ModelsUser::find(Auth::user()->id)->following()->pluck("id")->toArray() :  [];
     }
 
     /**

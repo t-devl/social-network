@@ -6,7 +6,7 @@
 <h1 class="following__title">Following</h1>
     <div class="following__users users">
         @foreach($users as $user)
-            <x-user :user="$user" :followedUsers="$followedUsers" />
+        <x-user :user="$user" />
         @endforeach
     </div>
 </div>

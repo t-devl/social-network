@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\User;
 use Illuminate\View\Component;
 
 class Post extends Component
@@ -15,6 +16,9 @@ class Post extends Component
      */
     public function __construct($post)
     {
+        $likes = $post->likes()->pluck("user_id")->toArray();
+        $post->likes = $likes;
+        $post->likedBy = User::whereIn("id", $likes)->get();
         $this->post = $post;
     }
 
