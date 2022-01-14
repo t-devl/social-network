@@ -79,15 +79,38 @@
                     $button.attr("disabled", false);
                     $likesDisplay = $form.next();
                     $likesCount = parseInt($likesDisplay.find(".post__like-count").text());
-
+                    
+                    $modalContainer = $form.siblings(".post__like-modal-container");
+                    $username = $form.find(".post__liked-by-username").val();
+                    $users = $modalContainer.find(".like-modal__users");
+                    
                     if($method == "post"){
                         $button.addClass("post__like-button--unlike");
                         $button.html("Unlike");       
-                        $likesDisplay.html(`
-                        ${$likesCount == 0 ? `<span class="post__like-count">1</span> like`
-                        : `<span class="post__like-count">${$likesCount + 1}</span> likes`}  
-                        `);
                         $form.append("<input type='hidden' name='_method' value='delete' />");
+
+                        if($likesCount == 0){
+                            $likesDisplay.html(`<span class="post__like-count">1</span> like`);
+
+                            $users.html(`
+                            <div class="user">
+                                <div class="user__top">
+                                    <h2 class="user__username">${$username}</h2>
+                                </div>
+                            </div>
+                            `);
+                        }
+                        else{
+                            $likesDisplay.html(`<span class="post__like-count">${$likesCount + 1}</span> likes`);
+
+                            $users.append(`
+                            <div class="user">
+                                <div class="user__top">
+                                    <h2 class="user__username">${$username}</h2>
+                                </div>
+                            </div>
+                            `);
+                        }
                     }
                     else{
                         $button.removeClass("post__like-button--unlike");
@@ -97,6 +120,13 @@
                         : `<span class="post__like-count">${$likesCount - 1}</span> likes`}  
                         `);
                         $form.find("[name='_method']").remove();
+
+                        if($likesCount == 1){
+                            $users.html("<p class='like-modal__message'>This post has no likes.</p>");
+                        }
+                        else{
+                            $users.find(`.user__username:contains(${$username})`).closest(".user").remove();
+                        }
                     }
                 }
             });

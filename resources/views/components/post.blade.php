@@ -8,6 +8,9 @@
         @if(!Auth::user() || !in_array(Auth::user()->id, $post->likes))
         <form class="post__like" method="POST" action="/likes/{{ $post->id }}">
             @csrf
+            @auth
+            <input type="hidden" class="post__liked-by-username" value="{{Auth::user()->username}}" />
+            @endauth
             <input type="hidden" class="post__id" value="{{ $post->id }}" />
             <button class="post__like-button">Like</button>
         </form>
@@ -15,6 +18,7 @@
         <form class="post__like" method="POST" action="/likes/{{ $post->id }}">
             @csrf
             <input type="hidden" name="_method" value="delete" />
+            <input type="hidden" class="post__liked-by-username" value="{{Auth::user()->username}}" />
             <input type="hidden" class="post__id" value="{{ $post->id }}" />
             <button class="post__like-button post__like-button--unlike">Unlike</button>
         </form>
