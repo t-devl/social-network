@@ -10,6 +10,9 @@
 <body>
     <header class="header">
         <nav class="header__nav nav">
+            <button class="nav__toggle-button">
+                <div class="nav__toggle-icon"></div>
+            </button>
             <ul class="nav__list">
                 @guest
                 <li class="nav__item">
@@ -45,6 +48,21 @@
             </ul>
         </nav>
     </header>
+    <div class="wrapper">
     @yield("content")
+    </div>
 </body>
 </html>
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function(){
+        $(".nav__toggle-button").on("click", function(){
+            $(".nav__list").toggleClass("nav__list--active");
+        });
+    });
+</script>
