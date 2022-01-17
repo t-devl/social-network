@@ -19,7 +19,7 @@ class User extends Component
     public function __construct($user)
     {   
         $this->user = $user;
-        $this->followedUsers = Auth::user() ? ModelsUser::find(Auth::user()->id)->following()->pluck("id")->toArray() :  [];
+        $this->followedUsers = Auth::user() ? ModelsUser::find(Auth::user()->id)->following()->pluck("followed_id")->toArray() :  [];
     }
 
     /**

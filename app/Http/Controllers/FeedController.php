@@ -12,7 +12,7 @@ class FeedController extends Controller
     public function __invoke()
     {
         $user = User::find(Auth::user()->id);
-        $following = $user->following()->pluck("id")->toArray();      
+        $following = $user->following()->pluck("followed_id")->toArray();      
         $posts = Post::whereIn("user_id", $following)->orWhere("user_id", $user->id)->orderBy("created_at", "DESC")->get();
 
         return view("index", ["posts" => $posts]);
