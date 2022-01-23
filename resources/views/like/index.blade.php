@@ -100,10 +100,12 @@
             $(".post__view-likes-button").on("click", function(e){
                 $button = $(this);
                 $button.next().addClass("post__like-modal-container--active");
+                $("body").addClass("no-scroll");
             });
     
             $(".like-modal__button").on("click", function(){
                 $(this).closest(".post__like-modal-container").removeClass("post__like-modal-container--active");
+                $("body").removeClass("no-scroll");
             });
         });
     </script>

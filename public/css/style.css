@@ -8,6 +8,10 @@ body {
     background-color: rgb(242, 247, 253);
 }
 
+.no-scroll {
+    overflow: hidden;
+}
+
 body,
 button,
 input,
