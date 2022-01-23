@@ -5,9 +5,13 @@
 <div class="likes">
     <h1 class="likes__title">{{ $user->username }}'s Likes</h1>
         <div class="likes__posts posts">
+            @if(count($posts) == 0)
+            <p class="posts__message">This user has not liked any posts.</p>
+            @else
             @foreach($posts as $post)
             <x-post :post="$post" />
             @endforeach
+            @endif
         </div>
     </div>
 

@@ -35,10 +35,14 @@
       
     </div>
     <div class="profile__posts posts">
-        <h2 class="posts__title">Posts</h2> 
+        <h2 class="posts__title">Posts</h2>
+        @if(count($posts) == 0)
+        <p class="posts__message">This user has no posts.</p>
+        @else
         @foreach($posts as $post)
         <x-post :post="$post" />
         @endforeach
+        @endif
     </div>
 </div>
 
