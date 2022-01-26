@@ -18,7 +18,7 @@ class UserController extends Controller
     public function show($id){
         $user = User::find($id);
         $isOwnProfile = Auth::user() && Auth::user()->id === $user->id;
-        $posts = $user->posts()->get();
+        $posts = $user->posts()->orderBy("created_at", "DESC")->get();
         
         $followersCount = count($user->followers()->get());
         $followingCount = count($user->following()->get());
@@ -50,12 +50,14 @@ class UserController extends Controller
         $email = request("email");
         $password = request("password");
 
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
         $user = User::find(Auth::user()->id);
         $user->username = $username;
         $user->email = $email;
-        $user->password = $password;
+        $user->password = $hashedPassword;
 
         $user->save();
-        return redirect("/users/{{ $user->id }}");
+        return redirect("/users/$user->id");
     }
 }
