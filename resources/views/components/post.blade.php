@@ -1,7 +1,10 @@
 <div class="posts__post post">
     <header class="post__header">
-        <h3 class="post__author"><a class="post__author-link" href="/users/{{ $post->user->id }}">{{ $post->user->username }}</a></h3>
-        <div class="post__datetime">{{ $post->created_at->format("H:i d/m/Y") }}</div>
+        <img class="post__author-picture" src="{{ $post->user->profile_picture }}"/>
+        <div class="post__details">
+            <h3 class="post__author-name"><a class="post__author-link" href="/users/{{ $post->user->id }}">{{ $post->user->username }}</a></h3>
+            <div class="post__datetime">{{ $post->created_at->format("H:i d/m/Y") }}</div>
+        </div>
     </header>
     <p class="post__text">{{ $post->text }}</p>
     <div class="post__likes">

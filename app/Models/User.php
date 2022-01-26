@@ -16,6 +16,10 @@ class User extends Authenticatable
         "password",
     ];
 
+    public function getProfilePictureAttribute($value){
+        return $value ? $value : "/images/castle-combe.jpg";
+    }
+
     public function posts(){
         return $this->hasMany(Post::class);
     }

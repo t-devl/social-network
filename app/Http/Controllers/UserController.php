@@ -17,14 +17,15 @@ class UserController extends Controller
 
     public function show($id){
         $user = User::find($id);
+        $isOwnProfile = Auth::user() && Auth::user()->id === $user->id;
         $posts = $user->posts()->get();
-    
+        
         $followersCount = count($user->followers()->get());
         $followingCount = count($user->following()->get());
 
         $isFollowed = Auth::user() ? Follow::where("followed_id", $id)->where("follower_id", Auth::user()->id)->exists() : false;
 
-        return view ("user.show", ["user" => $user, "posts" => $posts, "followersCount" => $followersCount, "followingCount" => $followingCount, "isFollowed" => $isFollowed]);
+        return view ("user.show", ["user" => $user, "isOwnProfile" => $isOwnProfile, "posts" => $posts, "followersCount" => $followersCount, "followingCount" => $followingCount, "isFollowed" => $isFollowed]);
     }
 
     public function edit(){
@@ -52,7 +53,7 @@ class UserController extends Controller
         $user = User::find(Auth::user()->id);
         $user->username = $username;
         $user->email = $email;
-        $user->$password = $password;
+        $user->password = $password;
 
         $user->save();
         return redirect("/users/{{ $user->id }}");
